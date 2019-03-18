@@ -2,37 +2,27 @@ public class StrToInt {
 
     public int strToInt(String str){
         if(str == null || str.length() == 0){
-            return 0;
+            throw new IllegalArgumentException("String should not be null");
         }
 
-        int result = 0;
-        char[] chs = str.toCharArray();
-        int len = chs.length;
-        for(int i=len-1,j=0;i>0;i--,j++){
-            int c = (int)chs[i];
-            if(c<48 || c>57){
+        int symbol = 1;
+        char[] array = str.toCharArray();
+        int sum = 0;
+
+        if(array[0] == '-'){
+            symbol = -1;
+            array[0] = '0';
+        } else if(array[0] == '+'){
+            array[0] = '0';
+        }
+
+        for(int i = 0; i<array.length;i++){
+            if(array[i] < '0'||array[i]>'9'){
                 return 0;
-            } else {
-                result += (c-48)*Math.pow(10,j);
             }
+
+            sum = sum *10 +array[i] - '0';
         }
-        int c = (int)chs[0];
-        if(c<=57&&c>=48){
-            result += (c-48)*Math.pow(10,len -1);
-        }
-        if(result <-2147483648 || result>2147483647){
-            return 0;
-        }else if(str.equals("2147483648")){
-            if(c==45){
-                result = -2147483648;
-            }
-        }else if(str.equals("-2147483648")){
-            result = -2147483648;
-        } else{
-            if(c == 45){
-                result = -result;
-            }
-        }
-        return result;
+        return sum*symbol;
     }
 }

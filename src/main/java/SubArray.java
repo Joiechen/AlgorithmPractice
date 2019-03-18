@@ -9,6 +9,9 @@ public class SubArray {
      * @param sum
      */
     public void findSubArray(int[] num,int sum){
+        if(num == null||num.length<=0){
+            throw new IllegalArgumentException("Array must contain at least one element");
+        }
         int left = 0;
         int right = 0;
         for(int i=0;i<num.length;i++){
@@ -20,12 +23,13 @@ public class SubArray {
             }
             if(curSum == sum){
                 for(int j=left;j<right;j++){
-                    System.out.println(num[j] + "");
+                    System.out.print(num[j] + ",");
                 }
                 System.out.println();
             }
         }
     }
+
 
     /***
      * 求给定数组的最大和子数组
@@ -33,6 +37,10 @@ public class SubArray {
      * @return
      */
     public List<Integer> subArraySumItem(int[] params) {
+        if(params==null||params.length<=0){
+            throw new IllegalArgumentException("Array must contain at least one element");
+        }
+
         int currentSum = 0;
         int maxSum = 0;
         int curStart = 0;
@@ -58,13 +66,17 @@ public class SubArray {
         return list;
     }
 
+
     /***
      * 获取数组和
      * @param arr
      * @return
      */
     public int getMaxSum(int[] arr) {
-        int max = -100000;
+        if(arr==null || arr.length<=0){
+            throw new IllegalArgumentException("Array must contain at least one element");
+        }
+        int max = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
             int sum = 0;
             for (int j = i; j < arr.length; j++) {
