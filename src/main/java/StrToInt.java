@@ -1,7 +1,12 @@
 public class StrToInt {
 
+    /***
+     * 给定字符数组转换成整数
+     * @param str
+     * @return
+     */
     public int strToInt(String str){
-        if(str == null || str.length() == 0){
+        if(str == null || str.length() <= 0){
             throw new IllegalArgumentException("String should not be null");
         }
 

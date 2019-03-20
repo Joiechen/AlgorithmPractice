@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import java.util.List;
-
 public class TestMethod {
 
     StrToInt strToInt = new StrToInt();
@@ -9,6 +7,7 @@ public class TestMethod {
     ReverseList reverselist = new ReverseList();
     ListNode listnode = new ListNode(6);
     BinarySearch binarySearch = new BinarySearch();
+    GetMaxOutPut getMaxOutPut = new GetMaxOutPut();
 
     @Test
     public void TestSubArray() {
@@ -17,6 +16,7 @@ public class TestMethod {
         int[] data2 = {-2, -8, -1, -5, -9};
         int[] data3 = {2, 8, 1, 5, 9};
         String inputstr = "00356464";
+        getMaxOutPut.getMaxOut(8);
         //int[] inputNum = {};
         //subarray.findSubArray(inputNum,6);
         //System.out.println(subarray.subArraySumItem(inputNum));
